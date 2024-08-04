@@ -1,6 +1,7 @@
 import argparse
 from src import data_loader, preprocess, train, evaluate, save_load, utils
 
+
 def main(data_path, model_type, target_column, model_save_path):
     # Ensure directories
     utils.ensure_dir('models')
@@ -8,8 +9,11 @@ def main(data_path, model_type, target_column, model_save_path):
     # Load data
     df = data_loader.load_data(data_path)
 
+    # Verify columns
+    print("Columns in the dataset:", df.columns)
+
     # Preprocess data
-    X_train, X_test, y_train, y_test, scaler = preprocess.preprocess_data(df, target_column)
+    X_train, X_test, y_train, y_test, preprocessor = preprocess.preprocess_data(df, target_column)
 
     # Train model
     model = train.train_model(X_train, y_train, model_type)
@@ -18,9 +22,11 @@ def main(data_path, model_type, target_column, model_save_path):
     metrics = evaluate.evaluate_model(model, X_test, y_test)
     print(f"Evaluation Metrics: {metrics}")
 
-    # Save model
+    # Save model and preprocessor
     save_load.save_model(model, model_save_path)
+    save_load.save_model(preprocessor, './models/preprocessor.pkl')
     print(f"Model saved to {model_save_path}")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run the ML pipeline.")
