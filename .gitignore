@@ -1,0 +1,17 @@
+
+.idea/git_toolbox_prj.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/Machinelearing-template.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+src/__pycache__/__init__.cpython-312.pyc
+src/__pycache__/data_loader.cpython-312.pyc
+src/__pycache__/evaluate.cpython-312.pyc
+src/__pycache__/preprocess.cpython-312.pyc
+src/__pycache__/save_load.cpython-312.pyc
+src/__pycache__/train.cpython-312.pyc
+src/__pycache__/utils.cpython-312.pyc
+models/preprocessor.pkl
+models/churn_model.pkl
